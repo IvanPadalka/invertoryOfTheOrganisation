@@ -1,0 +1,36 @@
+<div class="row">
+    <nb-card class="col-12">
+        <nb-card-body>
+            <h6>Inventory</h6>
+            <div class="row">
+                <dx-data-grid id="gridContainer"
+                              [dataSource]="equipments"
+                              [showBorders]="true"
+                              (onRowRemoved)="editEnd()"
+                              (onRowUpdated)="editEnd()"
+                              (onRowInserted)="editEnd()">
+                    <dxo-editing
+                            mode="popup"
+                            [useIcons]="true"
+                            [allowUpdating]="true"
+                            [allowDeleting]="true"
+                            [allowAdding]="true">
+                    </dxo-editing>
+                    <dxo-group-panel
+                            [visible]="true"
+                    ></dxo-group-panel>
+                    <dxo-paging [pageSize]="15"></dxo-paging>
+                    <dxo-pager
+                            [showNavigationButtons]="true"
+                            [showPageSizeSelector]="true"
+                            [showInfo]="true">
+                    </dxo-pager>
+                    <dxo-group-panel [visible]="false"></dxo-group-panel>
+                    <dxi-column dataField="equipmentName" caption="Name" dataType=""></dxi-column>
+                    <dxi-column dataField="equipmentType" caption="Type" dataType=""></dxi-column>
+                    <dxi-column dataField="equipmentCode" caption="Code" dataType=""></dxi-column>
+                </dx-data-grid>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>
